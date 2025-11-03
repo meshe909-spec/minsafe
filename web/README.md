@@ -1,0 +1,23 @@
+# MiniSafe Web (React + Vite + Tailwind)
+
+Setup:
+1) Create `.env` and add:
+```
+VITE_BACKEND_URL=http://localhost:8080
+VITE_FIREBASE_API_KEY=
+VITE_FIREBASE_AUTH_DOMAIN=
+VITE_FIREBASE_PROJECT_ID=
+VITE_FIREBASE_STORAGE_BUCKET=
+VITE_FIREBASE_MESSAGING_SENDER_ID=
+VITE_FIREBASE_APP_ID=
+```
+
+Install and run:
+```
+npm install
+npm run dev
+```
+
+
+
+
