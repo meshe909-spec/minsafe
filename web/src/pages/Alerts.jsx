@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { resolveAlert } from '../services/api';
-import { collection, onSnapshot, orderBy, query, where, getFirestore, doc, getDoc } from 'firebase/firestore';
+import { collection, onSnapshot, orderBy, query, where, doc, getDoc } from 'firebase/firestore';
+import { db } from '../services/firebase';
 
 export default function Alerts() {
   const [alerts, setAlerts] = useState([]);
 
   useEffect(() => {
-    const db = getFirestore();
     const q = query(collection(db, 'alerts'), where('status', '==', 'OPEN'), orderBy('createdAt', 'desc'));
     const unsub = onSnapshot(q, async (snap) => {
       const rows = [];

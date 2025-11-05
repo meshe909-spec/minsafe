@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { io } from 'socket.io-client';
 import CameraFeed from '../components/CameraFeed.jsx';
-import { collection, getCountFromServer, getFirestore, orderBy, limit, query, getDocs } from 'firebase/firestore';
+import { collection, getCountFromServer, orderBy, limit, query, getDocs } from 'firebase/firestore';
+import { db } from '../services/firebase';
 import { triggerAlert } from '../services/api';
 
 const demoFeeds = [
@@ -20,7 +21,6 @@ export default function Dashboard() {
   }, []);
 
   useEffect(() => {
-    const db = getFirestore();
     (async () => {
       try {
         const childrenCount = await getCountFromServer(collection(db, 'children'));
